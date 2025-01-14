@@ -13,7 +13,7 @@ const config = {
     transparent: false,
     pixelArt: false,
 
-    // physics: { default: "arcade", arcade: { debug: false } },
+
 
     scene: [
         ScenePreload,

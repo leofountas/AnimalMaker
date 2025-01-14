@@ -59,8 +59,7 @@ class ScenePreload extends Phaser.Scene {
             frameHeight: 512,
         });
         //---------------snake level-----------------
-        this.load.image('desert', 'assets/img/desert.png')
-        this.load.image('snake', 'assets/img/main-snake.png');
+        this.load.image('desert', 'assets/img/desert.png');
         this.load.image('snakebody1', 'assets/img/snake-body1.png');
         this.load.image('snakebody2', 'assets/img/snake-body2.png');
         this.load.image('snakehead', 'assets/img/snake-head.png');
@@ -68,7 +67,7 @@ class ScenePreload extends Phaser.Scene {
         this.load.image('snaketail', 'assets/img/snake-tail.png');
         this.load.image('snakeshadow', 'assets/img/snake-shadow.png');
         //---------------lion level-----------------
-        this.load.image('savana', 'assets/img/savana.png')
+        this.load.image('savana', 'assets/img/savana.png');
         this.load.image('lionshadow', 'assets/img/lion-shadow.png');
         this.load.image('lionface', 'assets/img/lion-face.png');
         this.load.image('lionmane', 'assets/img/lion-mane.png');
@@ -80,6 +79,8 @@ class ScenePreload extends Phaser.Scene {
         this.load.image('lionpaw1', 'assets/img/lion-paw1.png');
         this.load.image('lionpaw2', 'assets/img/lion-paw2.png');
         //---------------orangutan level-----------------
+        this.load.image('jungle', 'assets/img/jungle.png');
+        this.load.image('orangutanshadow', 'assets/img/orangutan-shadow.png');
         this.load.image('orangutanbody', 'assets/img/orangutan-body.png')
         this.load.image('orangutanbelly', 'assets/img/orangutan-belly.png');
         this.load.image('orangutanface', 'assets/img/orangutan-face.png');
