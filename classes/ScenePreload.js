@@ -106,6 +106,7 @@ class ScenePreload extends Phaser.Scene {
         this.load.audio('Wrong', 'assets/audio/wrong.wav');
         this.load.audio('Snake', 'assets/audio/snake.wav');
         this.load.audio('Lion', 'assets/audio/lion.wav');
+        this.load.audio('Orangutan', 'assets/audio/orangutan.wav');
     }
 
     create() {

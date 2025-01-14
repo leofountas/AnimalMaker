@@ -192,7 +192,7 @@ class SceneLeveltwo extends Phaser.Scene {
                     // this.scene.start('');
                     this.correctSound.stop();
                     this.introSound.stop();
-                    this.snakeSound.stop();
+                    this.lionSound.stop();
                 }
             },
             {

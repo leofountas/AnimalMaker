@@ -10,7 +10,7 @@ class SceneLevelThree extends Phaser.Scene {
         this.correctSound = this.sound.add('Correct');
         this.wrongSound = this.sound.add('Wrong');
         this.introSound = this.sound.add('Intro');
-        this.lionSound = this.sound.add('Lion');
+        this.orangutanSound = this.sound.add('Orangutan');
 
         // Background setup
         const bg = this.add.image(0, 0, 'jungle');
@@ -18,16 +18,16 @@ class SceneLevelThree extends Phaser.Scene {
         bg.setScale(this.scale.width / bg.width, this.scale.height / bg.height);
 
 
-        this.lionshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'orangutanshadow')
+        this.orangutanshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'orangutanshadow')
             .setScale(1.4)
             .setAlpha(0.5);
 
-        // Create snake pieces with proper positioning
-        this.lionPieces = [
+        // Create orangutan pieces with proper positioning
+        this.orangutanPieces = [
             {
                 name: 'orangutanbody',
                 x: this.scale.width / 2,
-                y: this.scale.height / 10
+                y: this.scale.height / 10 + 20,
             },
             {
                 name: 'orangutanarm1',
@@ -43,28 +43,28 @@ class SceneLevelThree extends Phaser.Scene {
 
             {
                 name: 'orangutanshoulder1',
-                x: this.scale.width - this.scale.width + 240,
-                y: this.scale.height / 5 + 140
+                x: this.scale.width - 100,
+                y: this.scale.height / 10 + 100
             },
             {
                 name: 'orangutanshoulder2',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 400
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height - 280
             },
             {
                 name: 'orangutanbelly',
-                x: this.scale.width - this.scale.width + 300,
-                y: this.scale.height - 340
+                x: this.scale.width - 100,
+                y: this.scale.height / 10,
             },
             {
                 name: 'orangutanhand1',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 300
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height - this.scale.height + 160
             },
             {
                 name: 'orangutanhand2',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 300
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height - this.scale.height + 80
             },
             {
                 name: 'orangutanleg1',
@@ -78,28 +78,28 @@ class SceneLevelThree extends Phaser.Scene {
             },
             {
                 name: 'orangutanfeet1',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 300
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height / 2
             },
             {
                 name: 'orangutanfeet2',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 300
+                x: this.scale.width - this.scale.width + 40,
+                y: this.scale.height / 2 + 40
             },
             {
                 name: 'orangutanhead',
-                x: this.scale.width - this.scale.width + 200,
+                x: this.scale.width - this.scale.width + 90,
                 y: this.scale.height / 5 + 100
             },
             {
                 name: 'orangutaneyes',
-                x: this.scale.width - this.scale.width + 280,
-                y: this.scale.height - 450
+                x: this.scale.width / 2,
+                y: this.scale.height / 4 + 100
             },
             {
                 name: 'orangutanmounth',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 300
+                x: this.scale.width / 2 + 30,
+                y: this.scale.height - 200
             },
 
         ].map(piece =>
@@ -110,79 +110,127 @@ class SceneLevelThree extends Phaser.Scene {
         );
 
         // Define drop zones with proper layering
-        const lionZones = [
+        const orangutanZones = [
             {
                 name: 'orangutanhead',
-                x: this.scale.width / 2 - 48,
-                y: this.scale.height / 2 - 40,
-                width: 301.5,
-                height: 245.1,
+                x: this.scale.width / 2 + 18,
+                y: this.scale.height / 2 - 66,
+                width: 179.4,
+                height: 222,
                 depth: 0
             },
-            // {
-            //     name: 'lionface',
-            //     x: this.scale.width / 2 - 45,
-            //     y: this.scale.height / 2 - 13,
-            //     width: 169.8,
-            //     height: 133.2,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'lionback',
-            //     x: this.scale.width / 2 + 115,
-            //     y: this.scale.height / 2 + 48,
-            //     width: 120.3,
-            //     height: 107.7,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'lionear1',
-            //     x: this.scale.width / 2 - 128,
-            //     y: this.scale.height / 2 - 78,
-            //     width: 61.2,
-            //     height: 55.5,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'lionear2',
-            //     x: this.scale.width / 2 + 32,
-            //     y: this.scale.height / 2 - 90,
-            //     width: 63.9,
-            //     height: 48.9,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'lionpaw2',
-            //     x: this.scale.width / 2 - 20,
-            //     y: this.scale.height / 2 + 80,
-            //     width: 119.4,
-            //     height: 49.2,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'lionpaw1',
-            //     x: this.scale.width / 2 - 132,
-            //     y: this.scale.height / 2 + 80,
-            //     width: 58.8,
-            //     height: 40.5,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'lionendtail',
-            //     x: this.scale.width / 2 + 122,
-            //     y: this.scale.height / 2 + 113,
-            //     width: 88.5,
-            //     height: 69.9,
-            //     depth: 0
-            // },
-            // {
-            //     name: 'liontail',
-            //     x: this.scale.width / 2 + 210,
-            //     y: this.scale.height / 2 + 92,
-            //     width: 94.5,
-            //     height: 49.8,
-            //     depth: 0
-            // },
+            {
+                name: 'orangutanmounth',
+                x: this.scale.width / 2 + 20,
+                y: this.scale.height / 2 - 21,
+                width: 155.7,
+                height: 143.1,
+                depth: 0
+            },
+            {
+                name: 'orangutaneyes',
+                x: this.scale.width / 2 + 16,
+                y: this.scale.height / 2 - 80,
+                width: 110.1,
+                height: 69,
+                depth: 0
+            },
+            {
+                name: 'orangutanshoulder2',
+                x: this.scale.width / 2 - 79,
+                y: this.scale.height / 2 - 125,
+                width: 133.5,
+                height: 154.5,
+                depth: 0
+            },
+            {
+                name: 'orangutanshoulder1',
+                x: this.scale.width / 2 + 120,
+                y: this.scale.height / 2 + 50,
+                width: 188.1,
+                height: 170.4,
+                depth: 0
+            },
+            {
+                name: 'orangutanarm2',
+                x: this.scale.width / 2 - 120,
+                y: this.scale.height / 2 - 140,
+                width: 177.9,
+                height: 315,
+                depth: 0
+            },
+            {
+                name: 'orangutanarm1',
+                x: this.scale.width / 2 + 106,
+                y: this.scale.height / 2 + 154,
+                width: 207,
+                height: 314.4,
+                depth: 0
+            },
+            {
+                name: 'orangutanbelly',
+                x: this.scale.width / 2 - 54,
+                y: this.scale.height / 2 + 124,
+                width: 165.9,
+                height: 181.8,
+                depth: 0
+            },
+            {
+                name: 'orangutanleg2',
+                x: this.scale.width / 2 - 9,
+                y: this.scale.height / 2 + 220,
+                width: 132.9,
+                height: 101.4,
+                depth: 0
+            },
+            {
+                name: 'orangutanleg1',
+                x: this.scale.width / 2 - 174,
+                y: this.scale.height / 2 + 128,
+                width: 75.3,
+                height: 145.5,
+                depth: 0
+            },
+            {
+                name: 'orangutanbody',
+                x: this.scale.width / 2 - 42,
+                y: this.scale.height / 2 + 80,
+                width: 251.1,
+                height: 299.7,
+                depth: 0
+            },
+            {
+                name: 'orangutanfeet2',
+                x: this.scale.width / 2 - 62,
+                y: this.scale.height / 2 + 266,
+                width: 78,
+                height: 76.2,
+                depth: 0
+            },
+            {
+                name: 'orangutanfeet1',
+                x: this.scale.width / 2 - 160,
+                y: this.scale.height / 2 + 220,
+                width: 69.3,
+                height: 84.3,
+                depth: 0
+            },
+            {
+                name: 'orangutanhand2',
+                x: this.scale.width / 2 + 60,
+                y: this.scale.height / 2 + 320,
+                width: 78,
+                height: 76.2,
+                depth: 0
+            },
+            {
+                name: 'orangutanhand1',
+                x: this.scale.width / 2 - 102,
+                y: this.scale.height / 2 - 312,
+                width: 72,
+                height: 80.1,
+                depth: 0
+            },
 
         ].map(zoneData => {
             const zone = this.add.zone(zoneData.x, zoneData.y, zoneData.width, zoneData.height)
@@ -192,16 +240,16 @@ class SceneLevelThree extends Phaser.Scene {
             return zone;
         });
         // Debug graphics for drop zones - active this if u want to have a visual of the drop zones
-        const graphics = this.add.graphics();
-        graphics.lineStyle(2, 0x00ff00);
-        lionZones.forEach(zone => {
-            graphics.strokeRect(
-                zone.x - zone.input.hitArea.width / 2,
-                zone.y - zone.input.hitArea.height / 2,
-                zone.input.hitArea.width,
-                zone.input.hitArea.height
-            );
-        });
+        // const graphics = this.add.graphics();
+        // graphics.lineStyle(2, 0x00ff00);
+        // orangutanZones.forEach(zone => {
+        //     graphics.strokeRect(
+        //         zone.x - zone.input.hitArea.width / 2,
+        //         zone.y - zone.input.hitArea.height / 2,
+        //         zone.input.hitArea.width,
+        //         zone.input.hitArea.height
+        //     );
+        // });
 
         //Buttons setup
         const Btns = [
@@ -223,7 +271,7 @@ class SceneLevelThree extends Phaser.Scene {
                     // this.scene.start('');
                     this.correctSound.stop();
                     this.introSound.stop();
-                    this.snakeSound.stop();
+                    this.orangutanSound.stop();
                 }
             },
             {
@@ -251,7 +299,7 @@ class SceneLevelThree extends Phaser.Scene {
                     this.correctSound.stop();
                     this.introSound.stop();
                     this.wrongSound.stop();
-                    this.lionSound.stop();
+                    this.orangutanSound.stop();
                     this.scene.restart();
                 }
             }
@@ -263,26 +311,26 @@ class SceneLevelThree extends Phaser.Scene {
         this.score = 0;
         this.win = false;
         // Initialize drag handling
-        new Drag(this, this.lionPieces, lionZones);
+        new Drag(this, this.orangutanPieces, orangutanZones);
         // Initialize  ending animation handling
-        this.lionAnimated = false;
+        this.orangutanAnimated = false;
     }
 
     update() {
-        if (this.score === 9 && !this.win) {
+        if (this.score === 15 && !this.win) {
             this.correctSound.stop();
-            this.lionshadow.setAlpha(0);
-            this.lionSound.once('complete', () => {
+            this.orangutanshadow.setAlpha(0);
+            this.orangutanSound.once('complete', () => {
                 this.introSound.play();
             });
             this.nextBtn.setVisible(true);
-            this.lionSound.play();
+            this.orangutanSound.play();
             this.win = true;
 
-            // Trigger the animation once the lion is complete
-            if (!this.lionAnimated) {
-                this.lionAnimated = true;
-                new Animation(this, this.lionPieces);
+            // Trigger the animation once the orangutan is complete
+            if (!this.orangutanAnimated) {
+                this.orangutanAnimated = true;
+                new Animation(this, this.orangutanPieces);
 
             }
         }
