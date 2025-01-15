@@ -97,6 +97,21 @@ class ScenePreload extends Phaser.Scene {
         this.load.image('orangutanshoulder1', 'assets/img/orangutan-shoulder1.png');
         this.load.image('orangutanshoulder2', 'assets/img/orangutan-shoulder2.png');
         this.load.image('orangutanhead', 'assets/img/orangutan-head.png');
+        //---------------elephant level-----------------
+        this.load.image('elephantshadow', 'assets/img/elephant-shadow.png')
+        this.load.image('elephantbody', 'assets/img/elephant-body.png');
+        this.load.image('elephanthead', 'assets/img/elephant-head1.png');
+        this.load.image('elephantear', 'assets/img/elephant-ear.png');
+        this.load.image('elephanthorn', 'assets/img/elephant-horn.png');
+        this.load.image('elephanttrunk', 'assets/img/elephant-trunk.png');
+        this.load.image('elephantleg1', 'assets/img/elephant-leg1.png');
+        this.load.image('elephantleg2', 'assets/img/elephant-leg2.png');
+        this.load.image('elephantleg3', 'assets/img/elephant-leg3.png');
+        this.load.image('elephantleg4', 'assets/img/elephant-leg4.png');
+        this.load.image('elephanttail', 'assets/img/elephant-tail.png');
+        //---------------wolf level-----------------
+        this.load.image('forest', 'assets/img/forest.png');
+
 
         ///////////////// SOUND LOADING /////////////////////
         //--------------- Title Screen sound -----------------
@@ -104,9 +119,10 @@ class ScenePreload extends Phaser.Scene {
         this.load.audio('Intro', 'assets/audio/intro.wav');
         this.load.audio('Correct', 'assets/audio/correct.wav');
         this.load.audio('Wrong', 'assets/audio/wrong.wav');
-        this.load.audio('Snake', 'assets/audio/snake.wav');
-        this.load.audio('Lion', 'assets/audio/lion.wav');
-        this.load.audio('Orangutan', 'assets/audio/orangutan.wav');
+        this.load.audio('Snake', 'assets/audio/snake.mp3');
+        this.load.audio('Lion', 'assets/audio/lion.mp3');
+        this.load.audio('Orangutan', 'assets/audio/orangutan.mp3');
+        this.load.audio('Elephant', 'assets/audio/elephant.mp3');
     }
 
     create() {

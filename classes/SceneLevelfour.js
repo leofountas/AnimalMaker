@@ -1,6 +1,6 @@
-class SceneLevelThree extends Phaser.Scene {
+class SceneLevelFour extends Phaser.Scene {
     constructor() {
-        super("level-three");
+        super("level-four");
     }
 
     create() {
@@ -10,7 +10,7 @@ class SceneLevelThree extends Phaser.Scene {
         this.correctSound = this.sound.add('Correct');
         this.wrongSound = this.sound.add('Wrong');
         this.introSound = this.sound.add('Intro');
-        this.lionSound = this.sound.add('Lion');
+        this.elephantSound = this.sound.add('Elephant');
 
         // Background setup
         const bg = this.add.image(0, 0, 'savana');
@@ -18,59 +18,62 @@ class SceneLevelThree extends Phaser.Scene {
         bg.setScale(this.scale.width / bg.width, this.scale.height / bg.height);
 
 
-        this.lionshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'lionshadow')
+        this.elephantshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'elephantshadow')
             .setScale(1.4)
             .setAlpha(0.5);
 
-        // Create snake pieces with proper positioning
-        this.lionPieces = [
+        // Create orangutan pieces with proper positioning
+        this.elephantPieces = [
             {
-                name: 'lionmane',
+                name: 'elephantleg1',
+                x: this.scale.width - 100,
+                y: this.scale.height - 300
+            },
+            {
+                name: 'elephantleg2',
+                x: this.scale.width - 100,
+                y: this.scale.height / 10 + 100
+            },
+            {
+                name: 'elephantleg3',
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height - 280
+            },
+            {
+                name: 'elephantleg4',
+                x: this.scale.width - 100,
+                y: this.scale.height / 10,
+            },
+            {
+                name: 'elephantbody',
                 x: this.scale.width / 2,
-                y: this.scale.height / 10
+                y: this.scale.height / 10 + 20,
             },
             {
-                name: 'lionback',
-                x: this.scale.width - 100,
-                y: this.scale.height / 4 + 200
-            },
-
-            {
-                name: 'lionface',
-                x: this.scale.width - 100,
-                y: this.scale.height - 300
-            },
-            {
-                name: 'lionear1',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height / 5 + 100
-            },
-            {
-                name: 'lionear2',
-                x: this.scale.width - this.scale.width + 240,
-                y: this.scale.height / 5 + 140
-            },
-            {
-                name: 'liontail',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 400
-            },
-            {
-                name: 'lionendtail',
-                x: this.scale.width - this.scale.width + 300,
-                y: this.scale.height - 340
-            },
-            {
-                name: 'lionpaw1',
-                x: this.scale.width - this.scale.width + 280,
-                y: this.scale.height - 450
-            },
-            {
-                name: 'lionpaw2',
+                name: 'elephanttrunk',
                 x: this.scale.width - this.scale.width + 200,
                 y: this.scale.height - 300
-            }
-
+            },
+            {
+                name: 'elephanthead',
+                x: this.scale.width - 100,
+                y: this.scale.height / 4 + 140
+            },
+            {
+                name: 'elephanttail',
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height - this.scale.height + 160
+            },
+            {
+                name: 'elephantear',
+                x: this.scale.width - this.scale.width + 100,
+                y: this.scale.height - this.scale.height + 80
+            },
+            {
+                name: 'elephanthorn',
+                x: this.scale.width - this.scale.width + 200,
+                y: this.scale.height - 300
+            },
         ].map(piece =>
             this.add.image(piece.x, piece.y, piece.name)
                 .setScale(0.3)
@@ -79,80 +82,87 @@ class SceneLevelThree extends Phaser.Scene {
         );
 
         // Define drop zones with proper layering
-        const lionZones = [
+        const elephantZones = [
             {
-                name: 'lionmane',
-                x: this.scale.width / 2 - 48,
-                y: this.scale.height / 2 - 40,
-                width: 301.5,
-                height: 245.1,
+                name: 'elephantear',
+                x: this.scale.width / 2 + 17,
+                y: this.scale.height / 2 - 53,
+                width: 126.9,
+                height: 201,
                 depth: 0
             },
             {
-                name: 'lionface',
-                x: this.scale.width / 2 - 45,
-                y: this.scale.height / 2 - 13,
-                width: 169.8,
-                height: 133.2,
+                name: 'elephanthead',
+                x: this.scale.width / 2 + 100,
+                y: this.scale.height / 2 - 37,
+                width: 194.7,
+                height: 199.2,
                 depth: 0
             },
             {
-                name: 'lionback',
-                x: this.scale.width / 2 + 115,
-                y: this.scale.height / 2 + 48,
-                width: 120.3,
-                height: 107.7,
+                name: 'elephanthorn',
+                x: this.scale.width / 2 + 184,
+                y: this.scale.height / 2 + 2,
+                width: 110.1,
+                height: 69,
                 depth: 0
             },
             {
-                name: 'lionear1',
-                x: this.scale.width / 2 - 128,
-                y: this.scale.height / 2 - 78,
-                width: 61.2,
-                height: 55.5,
+                name: 'elephantbody',
+                x: this.scale.width / 2 - 65,
+                y: this.scale.height / 2,
+                width: 271.8,
+                height: 206.1,
                 depth: 0
             },
             {
-                name: 'lionear2',
-                x: this.scale.width / 2 + 32,
-                y: this.scale.height / 2 - 90,
-                width: 63.9,
-                height: 48.9,
+                name: 'elephanttail',
+                x: this.scale.width / 4 - 45,
+                y: this.scale.height / 2 + 4,
+                width: 43.8,
+                height: 70.8,
                 depth: 0
             },
             {
-                name: 'lionpaw2',
-                x: this.scale.width / 2 - 20,
-                y: this.scale.height / 2 + 80,
-                width: 119.4,
-                height: 49.2,
+                name: 'elephantleg4',
+                x: this.scale.width / 2 + 15,
+                y: this.scale.height / 2 + 95,
+                width: 112.2,
+                height: 126.6,
                 depth: 0
             },
             {
-                name: 'lionpaw1',
-                x: this.scale.width / 2 - 132,
-                y: this.scale.height / 2 + 80,
-                width: 58.8,
-                height: 40.5,
+                name: 'elephantleg2',
+                x: this.scale.width / 2 - 12,
+                y: this.scale.height / 2 + 95,
+                width: 90.9,
+                height: 121.2,
                 depth: 0
             },
             {
-                name: 'lionendtail',
-                x: this.scale.width / 2 + 122,
-                y: this.scale.height / 2 + 113,
-                width: 88.5,
-                height: 69.9,
+                name: 'elephantleg3',
+                x: this.scale.width / 2 - 136,
+                y: this.scale.height / 2 + 87,
+                width: 118.5,
+                height: 138,
                 depth: 0
             },
             {
-                name: 'liontail',
-                x: this.scale.width / 2 + 210,
-                y: this.scale.height / 2 + 92,
-                width: 94.5,
-                height: 49.8,
+                name: 'elephantleg1',
+                x: this.scale.width / 2 - 163,
+                y: this.scale.height / 2 + 75,
+                width: 74.1,
+                height: 165.3,
                 depth: 0
             },
-
+            {
+                name: 'elephanttrunk',
+                x: this.scale.width / 2 + 150,
+                y: this.scale.height / 2 + 66,
+                width: 105.6,
+                height: 162.3,
+                depth: 0
+            },
         ].map(zoneData => {
             const zone = this.add.zone(zoneData.x, zoneData.y, zoneData.width, zoneData.height)
                 .setRectangleDropZone(zoneData.width, zoneData.height)
@@ -163,7 +173,7 @@ class SceneLevelThree extends Phaser.Scene {
         // Debug graphics for drop zones - active this if u want to have a visual of the drop zones
         // const graphics = this.add.graphics();
         // graphics.lineStyle(2, 0x00ff00);
-        // lionZones.forEach(zone => {
+        // elephantZones.forEach(zone => {
         //     graphics.strokeRect(
         //         zone.x - zone.input.hitArea.width / 2,
         //         zone.y - zone.input.hitArea.height / 2,
@@ -180,7 +190,7 @@ class SceneLevelThree extends Phaser.Scene {
                 y: this.scale.height - 60,
                 visibility: false,
                 action: () => {
-                    this.scene.start('level-four');
+                    this.scene.start('level-five');
                 }
             },
             {
@@ -192,7 +202,7 @@ class SceneLevelThree extends Phaser.Scene {
                     // this.scene.start('');
                     this.correctSound.stop();
                     this.introSound.stop();
-                    this.lionSound.stop();
+                    this.elephantSound.stop();
                 }
             },
             {
@@ -220,7 +230,7 @@ class SceneLevelThree extends Phaser.Scene {
                     this.correctSound.stop();
                     this.introSound.stop();
                     this.wrongSound.stop();
-                    this.lionSound.stop();
+                    this.elephantSound.stop();
                     this.scene.restart();
                 }
             }
@@ -232,26 +242,26 @@ class SceneLevelThree extends Phaser.Scene {
         this.score = 0;
         this.win = false;
         // Initialize drag handling
-        new Drag(this, this.lionPieces, lionZones);
+        new Drag(this, this.elephantPieces, elephantZones);
         // Initialize  ending animation handling
-        this.lionAnimated = false;
+        this.elephantAnimated = false;
     }
 
     update() {
-        if (this.score === 9 && !this.win) {
+        if (this.score === 10 && !this.win) {
             this.correctSound.stop();
-            this.lionshadow.setAlpha(0);
-            this.lionSound.once('complete', () => {
+            this.elephantshadow.setAlpha(0);
+            this.elephantSound.once('complete', () => {
                 this.introSound.play();
             });
             this.nextBtn.setVisible(true);
-            this.lionSound.play();
+            this.elephantSound.play();
             this.win = true;
 
-            // Trigger the animation once the lion is complete
-            if (!this.lionAnimated) {
-                this.lionAnimated = true;
-                new Animation(this, this.lionPieces);
+            // Trigger the animation once the elephant is complete
+            if (!this.elephantAnimated) {
+                this.elephantAnimated = true;
+                new Animation(this, this.elephantPieces);
 
             }
         }

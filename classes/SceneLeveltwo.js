@@ -10,67 +10,56 @@ class SceneLeveltwo extends Phaser.Scene {
         this.correctSound = this.sound.add('Correct');
         this.wrongSound = this.sound.add('Wrong');
         this.introSound = this.sound.add('Intro');
-        this.lionSound = this.sound.add('Lion');
+        this.owlSound = this.sound.add('Owl');
 
         // Background setup
-        const bg = this.add.image(0, 0, 'savana');
+        const bg = this.add.image(0, 0, 'forest');
         bg.setOrigin(0, 0)
         bg.setScale(this.scale.width / bg.width, this.scale.height / bg.height);
 
 
-        this.lionshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'lionshadow')
+        this.owlshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'lionshadow')
             .setScale(1.4)
             .setAlpha(0.5);
 
         // Create snake pieces with proper positioning
-        this.lionPieces = [
+        this.owlPieces = [
             {
-                name: 'lionmane',
+                name: 'owlbody',
                 x: this.scale.width / 2,
                 y: this.scale.height / 10
             },
             {
-                name: 'lionback',
+                name: 'owlhead',
                 x: this.scale.width - 100,
                 y: this.scale.height / 4 + 200
             },
 
             {
-                name: 'lionface',
+                name: 'owlface',
                 x: this.scale.width - 100,
                 y: this.scale.height - 300
             },
             {
-                name: 'lionear1',
+                name: 'owlwing',
                 x: this.scale.width - this.scale.width + 200,
                 y: this.scale.height / 5 + 100
             },
             {
-                name: 'lionear2',
+                name: 'owltail',
                 x: this.scale.width - this.scale.width + 240,
                 y: this.scale.height / 5 + 140
             },
             {
-                name: 'liontail',
+                name: 'owlclaw1',
                 x: this.scale.width - this.scale.width + 200,
                 y: this.scale.height - 400
             },
             {
-                name: 'lionendtail',
+                name: 'owlclaw2',
                 x: this.scale.width - this.scale.width + 300,
                 y: this.scale.height - 340
-            },
-            {
-                name: 'lionpaw1',
-                x: this.scale.width - this.scale.width + 280,
-                y: this.scale.height - 450
-            },
-            {
-                name: 'lionpaw2',
-                x: this.scale.width - this.scale.width + 200,
-                y: this.scale.height - 300
             }
-
         ].map(piece =>
             this.add.image(piece.x, piece.y, piece.name)
                 .setScale(0.3)
@@ -79,9 +68,9 @@ class SceneLeveltwo extends Phaser.Scene {
         );
 
         // Define drop zones with proper layering
-        const lionZones = [
+        const owlZones = [
             {
-                name: 'lionmane',
+                name: 'owlbody',
                 x: this.scale.width / 2 - 48,
                 y: this.scale.height / 2 - 40,
                 width: 301.5,
@@ -89,7 +78,7 @@ class SceneLeveltwo extends Phaser.Scene {
                 depth: 0
             },
             {
-                name: 'lionface',
+                name: 'owlclaw2',
                 x: this.scale.width / 2 - 45,
                 y: this.scale.height / 2 - 13,
                 width: 169.8,
@@ -97,7 +86,7 @@ class SceneLeveltwo extends Phaser.Scene {
                 depth: 0
             },
             {
-                name: 'lionback',
+                name: 'owlclaw1',
                 x: this.scale.width / 2 + 115,
                 y: this.scale.height / 2 + 48,
                 width: 120.3,
@@ -105,7 +94,7 @@ class SceneLeveltwo extends Phaser.Scene {
                 depth: 0
             },
             {
-                name: 'lionear1',
+                name: 'owltail',
                 x: this.scale.width / 2 - 128,
                 y: this.scale.height / 2 - 78,
                 width: 61.2,
@@ -113,7 +102,7 @@ class SceneLeveltwo extends Phaser.Scene {
                 depth: 0
             },
             {
-                name: 'lionear2',
+                name: 'owlwing',
                 x: this.scale.width / 2 + 32,
                 y: this.scale.height / 2 - 90,
                 width: 63.9,
@@ -121,7 +110,7 @@ class SceneLeveltwo extends Phaser.Scene {
                 depth: 0
             },
             {
-                name: 'lionpaw2',
+                name: 'owlhead',
                 x: this.scale.width / 2 - 20,
                 y: this.scale.height / 2 + 80,
                 width: 119.4,
@@ -129,30 +118,13 @@ class SceneLeveltwo extends Phaser.Scene {
                 depth: 0
             },
             {
-                name: 'lionpaw1',
+                name: 'owlface',
                 x: this.scale.width / 2 - 132,
                 y: this.scale.height / 2 + 80,
                 width: 58.8,
                 height: 40.5,
                 depth: 0
-            },
-            {
-                name: 'lionendtail',
-                x: this.scale.width / 2 + 122,
-                y: this.scale.height / 2 + 113,
-                width: 88.5,
-                height: 69.9,
-                depth: 0
-            },
-            {
-                name: 'liontail',
-                x: this.scale.width / 2 + 210,
-                y: this.scale.height / 2 + 92,
-                width: 94.5,
-                height: 49.8,
-                depth: 0
-            },
-
+            }
         ].map(zoneData => {
             const zone = this.add.zone(zoneData.x, zoneData.y, zoneData.width, zoneData.height)
                 .setRectangleDropZone(zoneData.width, zoneData.height)
@@ -163,7 +135,7 @@ class SceneLeveltwo extends Phaser.Scene {
         // Debug graphics for drop zones - active this if u want to have a visual of the drop zones
         // const graphics = this.add.graphics();
         // graphics.lineStyle(2, 0x00ff00);
-        // lionZones.forEach(zone => {
+        // owlZones.forEach(zone => {
         //     graphics.strokeRect(
         //         zone.x - zone.input.hitArea.width / 2,
         //         zone.y - zone.input.hitArea.height / 2,
@@ -192,7 +164,7 @@ class SceneLeveltwo extends Phaser.Scene {
                     // this.scene.start('');
                     this.correctSound.stop();
                     this.introSound.stop();
-                    this.lionSound.stop();
+                    this.owlSound.stop();
                 }
             },
             {
@@ -220,7 +192,7 @@ class SceneLeveltwo extends Phaser.Scene {
                     this.correctSound.stop();
                     this.introSound.stop();
                     this.wrongSound.stop();
-                    this.lionSound.stop();
+                    this.owlSound.stop();
                     this.scene.restart();
                 }
             }
@@ -232,26 +204,26 @@ class SceneLeveltwo extends Phaser.Scene {
         this.score = 0;
         this.win = false;
         // Initialize drag handling
-        new Drag(this, this.lionPieces, lionZones);
+        new Drag(this, this.owlPieces, owlZones);
         // Initialize  ending animation handling
-        this.lionAnimated = false;
+        this.owlAnimated = false;
     }
 
     update() {
-        if (this.score === 9 && !this.win) {
+        if (this.score === 7 && !this.win) {
             this.correctSound.stop();
-            this.lionshadow.setAlpha(0);
-            this.lionSound.once('complete', () => {
+            this.owlshadow.setAlpha(0);
+            this.owlSound.once('complete', () => {
                 this.introSound.play();
             });
             this.nextBtn.setVisible(true);
-            this.lionSound.play();
+            this.owlSound.play();
             this.win = true;
 
-            // Trigger the animation once the lion is complete
-            if (!this.lionAnimated) {
-                this.lionAnimated = true;
-                new Animation(this, this.lionPieces);
+            // Trigger the animation once the owl is complete
+            if (!this.owlAnimated) {
+                this.owlAnimated = true;
+                new Animation(this, this.owlPieces);
 
             }
         }

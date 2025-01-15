@@ -92,8 +92,8 @@ class SceneStartgame extends Phaser.Scene {
             },
             {
                 name: 'snaketail',
-                x: this.scale.width / 2 + 140,
-                y: this.scale.height / 2 + 70,
+                x: this.scale.width / 2 + 136,
+                y: this.scale.height / 2 + 74,
                 width: 135.9,
                 height: 173.4,
                 depth: 0
