@@ -2,7 +2,6 @@ class SceneLevelFive extends Phaser.Scene {
     constructor() {
         super("level-five");
     }
-
     create() {
         //Background outside canvas game 
         changeBackgroundImage('assets/img/background-jungle.png');

@@ -2,7 +2,6 @@ class SceneStartgame extends Phaser.Scene {
     constructor() {
         super("start-game");
     }
-
     create() {
         //Background outside canvas game 
         changeBackgroundImage('assets/img/background-desert.png');

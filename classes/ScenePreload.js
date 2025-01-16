@@ -109,8 +109,16 @@ class ScenePreload extends Phaser.Scene {
         this.load.image('elephantleg3', 'assets/img/elephant-leg3.png');
         this.load.image('elephantleg4', 'assets/img/elephant-leg4.png');
         this.load.image('elephanttail', 'assets/img/elephant-tail.png');
-        //---------------wolf level-----------------
+        //---------------owl level-----------------
         this.load.image('forest', 'assets/img/forest.png');
+        this.load.image('owlshadow', 'assets/img/owl-shadow.png');
+        this.load.image('owlbody', 'assets/img/owl-body.png');
+        this.load.image('owlclaw', 'assets/img/owl-claw1.png');
+        this.load.image('owlclaw', 'assets/img/owl-claw2.png');
+        this.load.image('owlface', 'assets/img/owl-face.png');
+        this.load.image('owlhead', 'assets/img/owl-head.png');
+        this.load.image('owltail', 'assets/img/owl-tail.png');
+        this.load.image('owlwing', 'assets/img/owl-wing.png');
 
 
         ///////////////// SOUND LOADING /////////////////////
@@ -123,6 +131,7 @@ class ScenePreload extends Phaser.Scene {
         this.load.audio('Lion', 'assets/audio/lion.mp3');
         this.load.audio('Orangutan', 'assets/audio/orangutan.mp3');
         this.load.audio('Elephant', 'assets/audio/elephant.mp3');
+        this.load.audio('Owl', 'assets/audio/owl.mp3');
     }
 
     create() {

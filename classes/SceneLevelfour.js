@@ -2,7 +2,6 @@ class SceneLevelFour extends Phaser.Scene {
     constructor() {
         super("level-four");
     }
-
     create() {
         //Background outside canvas game 
         changeBackgroundImage('assets/img/background-savana.png');
@@ -191,6 +190,9 @@ class SceneLevelFour extends Phaser.Scene {
                 visibility: false,
                 action: () => {
                     this.scene.start('level-five');
+                    this.correctSound.stop();
+                    this.introSound.stop();
+                    this.elephantSound.stop();
                 }
             },
             {

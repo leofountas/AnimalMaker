@@ -1,11 +1,10 @@
-class SceneLeveltwo extends Phaser.Scene {
+class SceneLevelTwo extends Phaser.Scene {
     constructor() {
         super("level-two");
     }
-
     create() {
         //Background outside canvas game 
-        changeBackgroundImage('assets/img/background-savana.png');
+        changeBackgroundImage('assets/img/background-forest.png');
         //Setting audios/sounds
         this.correctSound = this.sound.add('Correct');
         this.wrongSound = this.sound.add('Wrong');
@@ -18,45 +17,45 @@ class SceneLeveltwo extends Phaser.Scene {
         bg.setScale(this.scale.width / bg.width, this.scale.height / bg.height);
 
 
-        this.owlshadow = this.add.image(this.scale.width / 2, this.scale.height / 2, 'lionshadow')
+        this.owlshadow = this.add.image(this.scale.width / 2 + 80, this.scale.height / 4 + 50, 'owlshadow')
             .setScale(1.4)
             .setAlpha(0.5);
 
-        // Create snake pieces with proper positioning
+        // Create owl pieces with proper positioning
         this.owlPieces = [
+            {
+                name: 'owlhead',
+                x: this.scale.width / 2 + 100,
+                y: this.scale.height / 2 + 200
+            },
+            {
+                name: 'owltail',
+                x: this.scale.width / 2 - 160,
+                y: this.scale.height / 2
+            },
             {
                 name: 'owlbody',
                 x: this.scale.width / 2,
                 y: this.scale.height / 10
             },
             {
-                name: 'owlhead',
-                x: this.scale.width - 100,
-                y: this.scale.height / 4 + 200
-            },
-
-            {
                 name: 'owlface',
-                x: this.scale.width - 100,
-                y: this.scale.height - 300
+                x: this.scale.width / 2,
+                y: this.scale.height / 2
             },
             {
                 name: 'owlwing',
-                x: this.scale.width - this.scale.width + 200,
+                x: this.scale.width / 2 - 200,
                 y: this.scale.height / 5 + 100
             },
+
             {
-                name: 'owltail',
-                x: this.scale.width - this.scale.width + 240,
-                y: this.scale.height / 5 + 140
-            },
-            {
-                name: 'owlclaw1',
+                name: 'owlclaw',
                 x: this.scale.width - this.scale.width + 200,
                 y: this.scale.height - 400
             },
             {
-                name: 'owlclaw2',
+                name: 'owlclaw',
                 x: this.scale.width - this.scale.width + 300,
                 y: this.scale.height - 340
             }
@@ -71,58 +70,58 @@ class SceneLeveltwo extends Phaser.Scene {
         const owlZones = [
             {
                 name: 'owlbody',
-                x: this.scale.width / 2 - 48,
-                y: this.scale.height / 2 - 40,
-                width: 301.5,
-                height: 245.1,
+                x: this.scale.width / 2 + 75,
+                y: this.scale.height / 4 + 75,
+                width: 198.3,
+                height: 152.1,
                 depth: 0
             },
             {
-                name: 'owlclaw2',
-                x: this.scale.width / 2 - 45,
-                y: this.scale.height / 2 - 13,
-                width: 169.8,
-                height: 133.2,
+                name: 'owlclaw',
+                x: this.scale.width / 2 + 30,
+                y: this.scale.height / 4 + 158,
+                width: 62.4,
+                height: 37.5,
                 depth: 0
             },
             {
-                name: 'owlclaw1',
-                x: this.scale.width / 2 + 115,
-                y: this.scale.height / 2 + 48,
-                width: 120.3,
-                height: 107.7,
+                name: 'owlclaw',
+                x: this.scale.width / 2 + 99,
+                y: this.scale.height / 4 + 158,
+                width: 63,
+                height: 37.5,
                 depth: 0
             },
             {
                 name: 'owltail',
-                x: this.scale.width / 2 - 128,
-                y: this.scale.height / 2 - 78,
-                width: 61.2,
-                height: 55.5,
+                x: this.scale.width / 2 + 140,
+                y: this.scale.height / 4 + 142,
+                width: 66.3,
+                height: 70.8,
                 depth: 0
             },
             {
                 name: 'owlwing',
-                x: this.scale.width / 2 + 32,
-                y: this.scale.height / 2 - 90,
-                width: 63.9,
-                height: 48.9,
+                x: this.scale.width / 2 + 142,
+                y: this.scale.height / 4 + 72,
+                width: 87.6,
+                height: 105.3,
                 depth: 0
             },
             {
                 name: 'owlhead',
-                x: this.scale.width / 2 - 20,
-                y: this.scale.height / 2 + 80,
-                width: 119.4,
-                height: 49.2,
+                x: this.scale.width / 2 + 59,
+                y: this.scale.height / 4 - 20,
+                width: 159.9,
+                height: 114.6,
                 depth: 0
             },
             {
                 name: 'owlface',
-                x: this.scale.width / 2 - 132,
-                y: this.scale.height / 2 + 80,
-                width: 58.8,
-                height: 40.5,
+                x: this.scale.width / 2 + 59,
+                y: this.scale.height / 4,
+                width: 165.6,
+                height: 92.4,
                 depth: 0
             }
         ].map(zoneData => {
@@ -153,6 +152,9 @@ class SceneLeveltwo extends Phaser.Scene {
                 visibility: false,
                 action: () => {
                     this.scene.start('level-three');
+                    this.correctSound.stop();
+                    this.introSound.stop();
+                    this.owlSound.stop();
                 }
             },
             {
