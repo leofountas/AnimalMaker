@@ -237,6 +237,8 @@ class SceneLevelThree extends Phaser.Scene {
         new Drag(this, this.lionPieces, lionZones);
         // Initialize  ending animation handling
         this.lionAnimated = false;
+        // Initialize texture and fire work effect for end game
+        this.fireworks = new FireWorks(this, this.scale.width / 2, this.scale.height / 2);
     }
 
     update() {
@@ -245,6 +247,7 @@ class SceneLevelThree extends Phaser.Scene {
             this.lionshadow.setAlpha(0);
             this.lionSound.once('complete', () => {
                 this.introSound.play();
+                this.fireworks.action()
             });
             this.nextBtn.setVisible(true);
             this.lionSound.play();

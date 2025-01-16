@@ -209,6 +209,8 @@ class SceneLevelTwo extends Phaser.Scene {
         new Drag(this, this.owlPieces, owlZones);
         // Initialize  ending animation handling
         this.owlAnimated = false;
+        // Initialize texture and fire work effect for end game
+        this.fireworks = new FireWorks(this, this.scale.width / 2 + 80, this.scale.height / 4 + 50);
     }
 
     update() {
@@ -217,6 +219,7 @@ class SceneLevelTwo extends Phaser.Scene {
             this.owlshadow.setAlpha(0);
             this.owlSound.once('complete', () => {
                 this.introSound.play();
+                this.fireworks.action()
             });
             this.nextBtn.setVisible(true);
             this.owlSound.play();

@@ -184,6 +184,8 @@ class SceneStartgame extends Phaser.Scene {
         new Drag(this, this.snakePieces, snakeZones);
         // Initialize  ending animation handling
         this.snakeAnimated = false;
+        // Initialize texture and fire work effect for end game
+        this.fireworks = new FireWorks(this, this.scale.width / 2, this.scale.height / 2 + 40);
     }
 
     update() {
@@ -192,6 +194,8 @@ class SceneStartgame extends Phaser.Scene {
             this.snakeshadow.setAlpha(0);
             this.snakeSound.once('complete', () => {
                 this.introSound.play();
+                this.fireworks.action();
+
             });
             this.nextBtn.setVisible(true);
             this.snakeSound.play();

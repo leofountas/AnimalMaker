@@ -247,6 +247,8 @@ class SceneLevelFour extends Phaser.Scene {
         new Drag(this, this.elephantPieces, elephantZones);
         // Initialize  ending animation handling
         this.elephantAnimated = false;
+        // Initialize texture and fire work effect for end game
+        this.fireworks = new FireWorks(this, this.scale.width / 2, this.scale.height / 2);
     }
 
     update() {
@@ -255,6 +257,7 @@ class SceneLevelFour extends Phaser.Scene {
             this.elephantshadow.setAlpha(0);
             this.elephantSound.once('complete', () => {
                 this.introSound.play();
+                this.fireworks.action()
             });
             this.nextBtn.setVisible(true);
             this.elephantSound.play();

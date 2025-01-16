@@ -313,6 +313,8 @@ class SceneLevelFive extends Phaser.Scene {
         new Drag(this, this.orangutanPieces, orangutanZones);
         // Initialize  ending animation handling
         this.orangutanAnimated = false;
+        // Initialize texture and fire work effect for end game
+        this.fireworks = new FireWorks(this, this.scale.width / 2, this.scale.height / 2);
     }
 
     update() {
@@ -321,6 +323,7 @@ class SceneLevelFive extends Phaser.Scene {
             this.orangutanshadow.setAlpha(0);
             this.orangutanSound.once('complete', () => {
                 this.introSound.play();
+                this.fireworks.action()
             });
             this.nextBtn.setVisible(true);
             this.orangutanSound.play();
