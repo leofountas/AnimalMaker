@@ -176,7 +176,7 @@ class SceneLevelThree extends Phaser.Scene {
             {
                 name: 'nextBtn',
                 x: this.scale.width - 60,
-                y: this.scale.height - 60,
+                y: this.scale.height - 70,
                 visibility: false,
                 action: () => {
                     this.scene.start('level-four');
@@ -188,7 +188,7 @@ class SceneLevelThree extends Phaser.Scene {
             {
                 name: 'homeBtn',
                 x: this.scale.width - this.scale.width + 240,
-                y: this.scale.height - 60,
+                y: this.scale.height - 69,
                 visibility: true,
                 action: () => {
                     // this.scene.start('');
@@ -200,7 +200,7 @@ class SceneLevelThree extends Phaser.Scene {
             {
                 name: 'musicBtn',
                 x: this.scale.width - 220,
-                y: this.scale.height - 60,
+                y: this.scale.height - 70,
                 visibility: true,
                 action: () => {
                     if (this.game.sound.mute === false) {
@@ -215,7 +215,7 @@ class SceneLevelThree extends Phaser.Scene {
             {
                 name: 'restartBtn',
                 x: this.scale.width - this.scale.width + 60,
-                y: this.scale.height - 60,
+                y: this.scale.height - 70,
                 visibility: true,
                 action: () => {
                     this.score = 0;

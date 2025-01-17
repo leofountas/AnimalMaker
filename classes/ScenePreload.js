@@ -42,21 +42,12 @@ class ScenePreload extends Phaser.Scene {
         //---------------scene caramel-----------------
         this.load.image('caramel', 'assets/img/caramel1.png');
         //---------------buttons-----------------
-        this.load.spritesheet('nextBtn', 'assets/img/nextBtn.png', {
-            frameWidth: 512,
-            frameHeight: 512,
-        });
-        this.load.spritesheet('restartBtn', 'assets/img/restartBtn.png', {
-            frameWidth: 512,
-            frameHeight: 512,
-        });
-        this.load.spritesheet('homeBtn', 'assets/img/homeBtn.png', {
-            frameWidth: 512,
-            frameHeight: 512,
-        });
+        this.load.image('nextBtn', 'assets/img/nextBtn.png');
+        this.load.image('restartBtn', 'assets/img/restartBtn.png');
+        this.load.image('homeBtn', 'assets/img/homeBtn.png');
         this.load.spritesheet('musicBtn', 'assets/img/musicBtn.png', {
-            frameWidth: 512,
-            frameHeight: 512,
+            frameWidth: 299,
+            frameHeight: 320,
         });
         //---------------snake level-----------------
         this.load.image('desert', 'assets/img/desert.png');
@@ -83,7 +74,6 @@ class ScenePreload extends Phaser.Scene {
         this.load.image('orangutanshadow', 'assets/img/orangutan-shadow.png');
         this.load.image('orangutanbody', 'assets/img/orangutan-body.png')
         this.load.image('orangutanbelly', 'assets/img/orangutan-belly.png');
-        this.load.image('orangutanface', 'assets/img/orangutan-face.png');
         this.load.image('orangutanmounth', 'assets/img/orangutan-mounth.png');
         this.load.image('orangutaneyes', 'assets/img/orangutan-eyes.png');
         this.load.image('orangutanarm1', 'assets/img/orangutan-arm1.png');

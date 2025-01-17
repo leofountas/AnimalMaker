@@ -23,7 +23,8 @@ const config = {
         SceneLevelTwo,
         SceneLevelThree,
         SceneLevelFour,
-        SceneLevelFive
+        SceneLevelFive,
+        SceneEndGame
 
     ],
 

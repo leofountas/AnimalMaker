@@ -4,21 +4,16 @@ class Buttons {
         Btns.map(btn => {
             let button;
             if (btn.name !== 'musicBtn') {
-                button = this.scene.add.sprite(btn.x, btn.y, btn.name, 0)
-                    .setScale(0.2)
+                button = this.scene.add.image(btn.x, btn.y, btn.name)
+                    .setScale(0.45)
                     .setInteractive()
-                    .on('pointerover', () => {
-                        button.setScale(0.25);
-                    })
-                    .on('pointerout', () => {
-                        button.setScale(0.2);
-                    })
                     .on('pointerdown', () => {
-                        button.setFrame(1);
+                        button.setScale(0.35);
+
                     })
                     .on('pointerup', () => {
-                        button.setFrame(0);
                         btn.action();
+                        button.setScale(0.45)
                     });
 
                 // Initialize variables for each button created to use after in the update
@@ -27,16 +22,10 @@ class Buttons {
                 let initialFrame = this.scene.sound.mute ? 1 : 0;
 
                 button = this.scene.add.sprite(btn.x, btn.y, btn.name, initialFrame)
-                    .setScale(0.2)
+                    .setScale(0.45)
                     .setInteractive()
-                    .on('pointerover', () => {
-                        button.setScale(0.25);
-                    })
-                    .on('pointerout', () => {
-                        button.setScale(0.2);
-                    })
                     .on('pointerdown', () => {
-
+                        button.setScale(0.35);
                         if (button.frame.name === 0) {
                             button.setFrame(1);
                             btn.action();
@@ -44,6 +33,10 @@ class Buttons {
                             button.setFrame(0);
                             btn.action();
                         }
+
+                    })
+                    .on('pointerup', () => {
+                        button.setScale(0.45)
                     });
             }
 
