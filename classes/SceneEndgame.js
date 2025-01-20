@@ -20,7 +20,7 @@ class SceneEndGame extends Phaser.Scene {
         //setting congrats and trophy with animation
         this.congrats = this.add.image(this.scale.width / 2, this.scale.height / 4, 'congrats');
 
-        this.trophy = this.add.image(this.scale.width / 2, this.scale.height / 4 + 140, 'trophy').setScale(0.75)
+        this.trophy = this.add.image(this.scale.width / 2, this.scale.height / 4 + 140, 'trophy')
 
         this.tweens.add({
             targets: [this.congrats, this.trophy],

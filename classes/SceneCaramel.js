@@ -30,8 +30,7 @@ class SceneCaramel extends Phaser.Scene {
             yoyo: true,
             onComplete: () => {
 
-                this.scene.start("start-game");
-
+                this.scene.start("menu-level");
 
             }
         });
