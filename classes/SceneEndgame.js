@@ -32,12 +32,28 @@ class SceneEndGame extends Phaser.Scene {
             duration: 300,
             ease: 'Sine.easeInOut'
         });
-        // setting firworks to both sides
+        // setting fireworks to both sides
         this.fireworks = new FireWorks(this, this.scale.width - this.scale.width, this.scale.height / 4);
         this.fireworks2 = new FireWorks(this, this.scale.width, this.scale.height / 4)
 
         this.fireworks.action();
-        this.fireworks2.action()
+        this.fireworks2.action();
+
+        //Buttons setup
+        const Btns = [
+            {
+                name: 'homeBtn',
+                x: this.scale.width / 2,
+                y: this.scale.height / 2 + 200,
+                visibility: true,
+                action: () => {
+                    // this.scene.start('menu-level');
+                }
+            }
+        ];
+
+        // Initialize buttons handling
+        new Buttons(this, Btns);
 
     }
 

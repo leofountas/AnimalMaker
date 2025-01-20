@@ -46,8 +46,8 @@ class ScenePreload extends Phaser.Scene {
         this.load.image('restartBtn', 'assets/img/restartBtn.png');
         this.load.image('homeBtn', 'assets/img/homeBtn.png');
         this.load.spritesheet('musicBtn', 'assets/img/musicBtn.png', {
-            frameWidth: 299,
-            frameHeight: 320,
+            frameWidth: 237.5,
+            frameHeight: 234,
         });
         //---------------snake level-----------------
         this.load.image('desert', 'assets/img/desert.png');

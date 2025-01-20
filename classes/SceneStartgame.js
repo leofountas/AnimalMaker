@@ -107,16 +107,16 @@ class SceneStartgame extends Phaser.Scene {
         });
 
         // Debug graphics for drop zones - active this if u want to have a visual of the drop zones
-        // const graphics = this.add.graphics();
-        // graphics.lineStyle(2, 0x00ff00);
-        // snakeZones.forEach(zone => {
-        //     graphics.strokeRect(
-        //         zone.x - zone.input.hitArea.width / 2,
-        //         zone.y - zone.input.hitArea.height / 2,
-        //         zone.input.hitArea.width,
-        //         zone.input.hitArea.height
-        //     );
-        // });
+        const graphics = this.add.graphics();
+        graphics.lineStyle(2, 0x00ff00);
+        snakeZones.forEach(zone => {
+            graphics.strokeRect(
+                zone.x - zone.input.hitArea.width / 2,
+                zone.y - zone.input.hitArea.height / 2,
+                zone.input.hitArea.width,
+                zone.input.hitArea.height
+            );
+        });
 
         //Buttons setup
         const Btns = [

@@ -258,7 +258,7 @@ class SceneLevelFive extends Phaser.Scene {
                 y: this.scale.height - 70,
                 visibility: false,
                 action: () => {
-                    // this.scene.start('');
+                    this.scene.start('end-game');
                 }
             },
             {

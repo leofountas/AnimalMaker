@@ -5,15 +5,15 @@ class Buttons {
             let button;
             if (btn.name !== 'musicBtn') {
                 button = this.scene.add.image(btn.x, btn.y, btn.name)
-                    .setScale(0.45)
+                    .setScale(0.50)
                     .setInteractive()
                     .on('pointerdown', () => {
-                        button.setScale(0.35);
+                        button.setScale(0.40);
 
                     })
                     .on('pointerup', () => {
                         btn.action();
-                        button.setScale(0.45)
+                        button.setScale(0.50)
                     });
 
                 // Initialize variables for each button created to use after in the update
@@ -22,10 +22,10 @@ class Buttons {
                 let initialFrame = this.scene.sound.mute ? 1 : 0;
 
                 button = this.scene.add.sprite(btn.x, btn.y, btn.name, initialFrame)
-                    .setScale(0.45)
+                    .setScale(0.50)
                     .setInteractive()
                     .on('pointerdown', () => {
-                        button.setScale(0.35);
+                        button.setScale(0.40);
                         if (button.frame.name === 0) {
                             button.setFrame(1);
                             btn.action();
@@ -36,7 +36,7 @@ class Buttons {
 
                     })
                     .on('pointerup', () => {
-                        button.setScale(0.45)
+                        button.setScale(0.50)
                     });
             }
 
