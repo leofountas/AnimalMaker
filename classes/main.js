@@ -20,6 +20,7 @@ const config = {
         ScenePreload,
         SceneCaramel,
         SceneMenu,
+        SceneInfo,
         SceneStartgame,
         SceneLevelTwo,
         SceneLevelThree,

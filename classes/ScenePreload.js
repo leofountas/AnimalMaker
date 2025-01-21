@@ -49,6 +49,10 @@ class ScenePreload extends Phaser.Scene {
             frameWidth: 237.5,
             frameHeight: 234,
         });
+        //menu level, info level and ending game
+        this.load.image('menu-end', 'assets/img/menu-end.png');
+        this.load.image('playBtn', 'assets/img/playBtn.png');
+        this.load.image('moregames', 'assets/img/moregames.png');
         //---------------snake level-----------------
         this.load.image('desert', 'assets/img/desert.png');
         this.load.image('snakebody1', 'assets/img/snake-body1.png');

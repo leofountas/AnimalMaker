@@ -3,7 +3,7 @@ class Buttons {
         this.scene = scene;
         Btns.map(btn => {
             let button;
-            if (btn.name !== 'musicBtn') {
+            if (btn.name !== 'musicBtn' && btn.name !== 'playBtn') {
                 button = this.scene.add.image(btn.x, btn.y, btn.name)
                     .setScale(0.50)
                     .setInteractive()
@@ -18,6 +18,17 @@ class Buttons {
 
                 // Initialize variables for each button created to use after in the update
                 this.scene[btn.name] = button;
+            } else if (btn.name === 'playBtn') {
+                button = this.scene.add.image(btn.x, btn.y, btn.name)
+                    .setScale(1.25)
+                    .setInteractive()
+                    .on('pointerdown', () => {
+                        button.setScale(1.15)
+                    })
+                    .on('pointerup', () => {
+                        btn.action();
+                        button.setScale(1.25)
+                    });
             } else {
                 let initialFrame = this.scene.sound.mute ? 1 : 0;
 

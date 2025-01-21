@@ -138,7 +138,7 @@ class SceneStartgame extends Phaser.Scene {
                 y: this.scale.height - 69,
                 visibility: true,
                 action: () => {
-                    // this.scene.start('');
+                    this.scene.start('menu-level');
                     this.correctSound.stop();
                     this.introSound.stop();
                     this.snakeSound.stop();
