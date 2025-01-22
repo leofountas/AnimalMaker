@@ -118,7 +118,7 @@ class ScenePreload extends Phaser.Scene {
         ///////////////// SOUND LOADING /////////////////////
         //--------------- Title Screen sound -----------------
         //this.load.audio('Title_sound', 'assets/audio/yourSound.mp3');
-        this.load.audio('Intro', 'assets/audio/intro.wav');
+        this.load.audio('Intro', 'assets/audio/Intro.wav');
         this.load.audio('Correct', 'assets/audio/correct.wav');
         this.load.audio('Wrong', 'assets/audio/wrong.wav');
         this.load.audio('Snake', 'assets/audio/snake.mp3');
