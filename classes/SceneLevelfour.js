@@ -59,11 +59,6 @@ class SceneLevelFour extends Phaser.Scene {
                 y: this.scale.height / 4 + 140
             },
             {
-                name: 'elephanttail',
-                x: this.scale.width - this.scale.width + 100,
-                y: this.scale.height - this.scale.height + 160
-            },
-            {
                 name: 'elephantear',
                 x: this.scale.width - this.scale.width + 100,
                 y: this.scale.height - this.scale.height + 80
@@ -108,18 +103,10 @@ class SceneLevelFour extends Phaser.Scene {
             },
             {
                 name: 'elephantbody',
-                x: this.scale.width / 2 - 65,
-                y: this.scale.height / 2,
-                width: 271.8,
+                x: this.scale.width / 2 - 70,
+                y: this.scale.height / 2 - 2,
+                width: 315.6,
                 height: 206.1,
-                depth: 0
-            },
-            {
-                name: 'elephanttail',
-                x: this.scale.width / 4 - 45,
-                y: this.scale.height / 2 + 4,
-                width: 43.8,
-                height: 70.8,
                 depth: 0
             },
             {
@@ -252,7 +239,7 @@ class SceneLevelFour extends Phaser.Scene {
     }
 
     update() {
-        if (this.score === 10 && !this.win) {
+        if (this.score === 9 && !this.win) {
             this.correctSound.stop();
             this.elephantshadow.setAlpha(0);
             this.elephantSound.once('complete', () => {
