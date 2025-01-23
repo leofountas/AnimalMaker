@@ -1,10 +1,11 @@
 // ****************************** main ***************************
 const config = {
-    width: 320 * 2,
-    height: 640 * 2,
+
 
     scale: {
         mode: Phaser.Scale.FIT,
+        width: 320 * 2,
+        height: 640 * 2,
         autoCenter: Phaser.Scale.CENTER_BOTH,
 
 
