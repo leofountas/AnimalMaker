@@ -15,10 +15,6 @@ class SceneMenu extends Phaser.Scene {
         this.load.image('R', 'assets/img/TitleLetter_R.png');
     }
     create() {
-        window.addEventListener('resize', () => {
-            console.log('Window width:', window.innerWidth);
-            console.log('Window height:', window.innerHeight);
-        });
         //Our github profiles
         const link = 'https://github.com/leofountas';
         const link2 = 'https://github.com/MaximeBastien04'
