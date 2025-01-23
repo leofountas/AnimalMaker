@@ -12,10 +12,15 @@ const config = {
         parent: "parent",
         mode: Phaser.Scale.FIT,
         width: 320 * 2,
-        height: isAppleDevice() ?
-            document.querySelector('#parent').clientHeight :
+        height:
             640 * 2,
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        postBoot: function () {
+            if (isAppleDevice) {
+                document.querySelector('canvas').style.marginTop = "0 !important";
+            }
+        }
+
     },
     type: Phaser.AUTO,
     transparent: false,
@@ -33,9 +38,6 @@ const config = {
         SceneEndGame
     ],
 };
-if (isAppleDevice()) {
-    console.log('APPLE')
-    document.querySelector("#parent").style.height = '95vh';
-}
+
 
 const game = new Phaser.Game(config);
