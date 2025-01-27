@@ -17,7 +17,7 @@ class SceneCaramel extends Phaser.Scene {
         this.caramel.scale = 0.5;
         this.caramel.alpha = 0;
 
-        this.caramel.preFX.addBloom();
+        // this.caramel.preFX.addBloom();
 
 
         this.tweens.add({
